@@ -1,0 +1,56 @@
+﻿@model MathProgram.Models.GuestResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Result</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body class="text-center">
+    <p>
+        <h3> Result:</h3>
+    @if(Model.Operation == "Add")
+    {
+
+        int soucet = Model.First + Model.Second;
+        @($"{soucet}")
+
+    }else if(Model.Operation == "Subtract")
+    {
+        int minus = Model.First - Model.Second;
+        @($"{minus}")
+
+    }else if(Model.Operation == "Multiply")
+    {
+        int nasobeni = Model.First * Model.Second;
+        @($"{nasobeni}")
+
+    }else if(Model.Operation == "Divide")
+    {
+        
+        @if(Model.Second == 0)
+        {
+            @:Can't divide by zero
+
+        }else
+        {
+            int delit = Model.First / Model.Second;
+            @($"{delit}")
+
+        }
+        
+
+    }else if(Model.Operation == "Modulus")
+    {
+        int model = Model.First % Model.Second;
+        @($"{model}")
+
+    }
+
+        </p>
+</body>
+</html>
